@@ -8,53 +8,42 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const readline = require('readline');
-const rl = readline.createInterface({
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const readline_1 = __importDefault(require("readline"));
+const rl = readline_1.default.createInterface({
     input: process.stdin,
     output: process.stdout,
 });
-function readArrayFromUser(size) {
+function sortArrayDescending(array) {
+    return array.sort((a, b) => b - a);
+}
+function readArrayFromUser(_size) {
     return new Promise((resolve) => {
-        rl.question(`Enter ${size} values for the array (comma-separated): `, (input) => {
+        rl.question(`Enter the values of the array (comma-separated): `, (input) => {
             const values = input.split(',').map((value) => parseInt(value.trim(), 10));
-            if (values.length !== size) {
-                console.log(`Expected ${size} values, but ${values.length} values were entered.`);
-                rl.close();
-                return;
-            }
             resolve(values);
         });
     });
 }
-function swapArrays(array1, array2) {
-    const tempArray = [...array1];
-    for (let i = 0; i < array2.length; i++) {
-        array1[i] = array2[i];
-        array2[i] = tempArray[i];
-    }
-}
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log('Enter size');
+        console.log('Enter the size of an array:');
         const size = yield new Promise((resolve) => {
-            rl.question('Size:', (input) => {
+            rl.question('Input: ', (input) => {
                 const size = parseInt(input, 10);
                 resolve(size);
             });
         });
-        console.log('Enter array 1:');
-        const array1 = yield readArrayFromUser(size);
-        console.log('Enter array 2:');
-        const array2 = yield readArrayFromUser(size);
-        console.log('Arrays before swapping:');
-        console.log('Array 1:', array1);
-        console.log('Array 2:', array2);
-        swapArrays(array1, array2);
-        console.log('After swapping');
-        console.log('Array 1:', array1);
-        console.log('Array 2:', array2);
+        console.log('Enter the values of the array:');
+        const array = yield readArrayFromUser(size);
+        const sortedArray = sortArrayDescending(array);
+        console.log('Sorted array:');
+        console.log(sortedArray.join(', '));
         rl.close();
     });
 }
 main();
-//# sourceMappingURL=ques10.js.map
+//# sourceMappingURL=ques12.js.map
