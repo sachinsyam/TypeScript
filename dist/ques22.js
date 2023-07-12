@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -52,24 +43,22 @@ function displayArray(arr) {
         console.log(arr[i].join('\t'));
     }
 }
-function main() {
-    return __awaiter(this, void 0, void 0, function* () {
-        console.log('Enter the size of array');
-        const sizeInput = yield new Promise((resolve) => {
-            rl.question('Input: ', (input) => {
-                resolve(parseInt(input, 10));
-            });
+async function main() {
+    console.log('Enter the size of array');
+    const sizeInput = await new Promise((resolve) => {
+        rl.question('Input: ', (input) => {
+            resolve(parseInt(input, 10));
         });
-        const size = sizeInput;
-        console.log('Enter the values of array 1');
-        const arr1 = yield getArray(size);
-        console.log('Enter the values of array 2');
-        const arr2 = yield getArray(size);
-        console.log('Sum of array 1 and array 2:');
-        const sumArray = addArray(arr1, arr2);
-        displayArray(sumArray);
-        rl.close();
     });
+    const size = sizeInput;
+    console.log('Enter the values of array 1');
+    const arr1 = await getArray(size);
+    console.log('Enter the values of array 2');
+    const arr2 = await getArray(size);
+    console.log('Sum of array 1 and array 2:');
+    const sumArray = addArray(arr1, arr2);
+    displayArray(sumArray);
+    rl.close();
 }
 main();
 //# sourceMappingURL=ques22.js.map

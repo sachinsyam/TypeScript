@@ -1,0 +1,1 @@
+let response = axiosRequest.get('https://www.boredapi.com/api/activity');

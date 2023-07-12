@@ -1,5 +1,8 @@
 "use strict";
 class Car {
+    name;
+    mileage;
+    max_speed;
     constructor(name, mileage, max_speed) {
         this.name = name;
         this.mileage = mileage;
