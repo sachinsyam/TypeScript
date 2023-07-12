@@ -1,3 +1,4 @@
 # TypeScript
 
-Simple TS example code
+Solutions for simple TS
+[Questions](https://github.com/sachinsyam/TypeScript/blob/main/TS_Questions.pdf)
