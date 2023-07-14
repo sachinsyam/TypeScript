@@ -4,6 +4,7 @@ async function hello() {
 }
 let num = 23;
 let num1;
+num1 = 1;
 let num3;
 let a;
 a = 'success';
@@ -66,4 +67,8 @@ function processData(data) {
     console.log(data);
 }
 fetchDataFromServer(processData);
+function rr(id) {
+    id = 3;
+    return id.toString();
+}
 //# sourceMappingURL=tsFeatures.js.map

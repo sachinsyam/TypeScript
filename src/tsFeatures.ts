@@ -6,6 +6,7 @@ async function hello(){
 //strong typing
 let num = 23; //type automatically inferred
 let num1:number; //explicit
+num1=1;
 let num3:any; //any type is accepted
 
 //Custom types
@@ -146,3 +147,7 @@ function processData(data:Result){
 fetchDataFromServer(processData);
 
 
+function rr(id:number):string{
+  id=3;
+  return id.toString();
+}
